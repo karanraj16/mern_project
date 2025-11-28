@@ -27,10 +27,10 @@ app.use("/api/users",userRoute);
 
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
-  app.use(express.static(path.join(__dirname, "../build")));
+  app.use(express.static(path.join(__dirname,"frontend", "build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "../build/index.html"))
+  app.use( (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend" , "build" , "index.html"))
   );
 };
 
